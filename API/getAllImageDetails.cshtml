@@ -1,0 +1,12 @@
+﻿@{
+	var selectQueryString = @"
+	SELECT image_id, asset_id, notes, description, size, added
+	FROM GF_Images
+	";
+
+	Response.Write(
+		Json.Encode(
+			Database.Open("StarterSite").Query(selectQueryString)
+		)
+	);
+}

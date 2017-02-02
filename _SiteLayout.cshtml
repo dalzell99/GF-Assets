@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>@Page.Title - My ASP.NET Web Page</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+		<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+		<link href="~/Content/toastr.min.css" rel="stylesheet" type="text/css" />
+		<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="~/Content/slick.css" rel="stylesheet" type="text/css" />
+		<link href="~/Content/slick-theme.css" rel="stylesheet" type="text/css" />
+		<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+
+		<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+		<script src="~/Scripts/jquery-ui-1.8.24.js"></script>
+		<script src="~/Scripts/modernizr-2.6.2.js"></script>
+		<script src="~/Scripts/es6-promise.auto.min.js"></script>
+		<script src="~/Scripts/toastr.min.js"></script>
+		<script src="~/Scripts/sorttable.js"></script>
+		<script src="~/Scripts/bootstrap.min.js"></script>
+		<script src="~/Scripts/slick.min.js"></script>
+		<script src="~/Scripts/global.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="content-wrapper">
+				<div class="float-left">
+					<p class="site-title" onclick="window.location.hash = 'AssetTable';">GF Assets</p>
+				</div>
+				<div class="float-right">
+					<nav>
+						<ul id="menu">
+							<li onclick="window.location.hash = 'AssetTable';">Home</li>
+							<li onclick="window.location.hash = 'AddNew';">Add New Asset</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<div id="body">
+			<section class="content-wrapper main-content clear-fix">
+				@RenderBody()
+			</section>
+			<div class="error"></div>
+		</div>
+		<footer>
+			<div class="content-wrapper">
+				<div class="float-left">
+					<p>&copy; @DateTime.Now.Year - My ASP.NET Web Page</p>
+				</div>
+			</div>
+		</footer>
+		@RenderSection("Scripts", required: false)
+	</body>
+</html>

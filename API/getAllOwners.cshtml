@@ -1,0 +1,13 @@
+﻿@{
+	var selectQueryString = @"
+	SELECT *
+	FROM GF_Owners
+	ORDER BY owner_id
+	";
+
+	Response.Write(
+		Json.Encode(
+			Database.Open("StarterSite").Query(selectQueryString)
+		)
+	);
+}

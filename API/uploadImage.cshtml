@@ -1,0 +1,12 @@
+@{
+	var db = Database.Open("StarterSite");
+
+	var asset_id = Request["asset_id"];
+	var name = Request["name"];
+	var size = Request["size"];
+	var image_data = Request["image_data"];
+
+	var insertImagesString = "INSERT INTO GF_Images (asset_id, name, size, image_data, added) VALUES (" + asset_id + ", '" + name + "', " + size + ", '" + image_data + "', GETDATE())";
+
+	db.Query(insertImagesString);
+}

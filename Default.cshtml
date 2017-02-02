@@ -1,0 +1,82 @@
+﻿@{
+	Layout = "~/_SiteLayout.cshtml";
+}
+
+@section Scripts {
+	<script src="~/Scripts/default.js"></script>
+}
+
+<!-- View all assets in table format (hash = empty string) -->
+<div class="asset_table_page">
+	<div class="filter_container col-xs-6">
+		<span>Search: </span>
+		<input type="text" oninput="filterAssetTable()" class="filter" />
+	</div>
+	<div class="pagination_container col-xs-6">
+		<li onclick="changePagination(Infinity)">All</li>
+		<li onclick="changePagination(50)">50</li>
+		<li onclick="changePagination(20)">20</li>
+		<li onclick="changePagination(10)">10</li>
+		<li onclick="changePagination(5)">5</li>
+	</div>
+	<table class="asset_table"></table>
+	<div class="pagination_controls">
+		<img class="previousPage" src="Images/previousPage.svg" onclick="previousPage()" />
+		<div class="pageNumber">1</div>
+		<img class="nextPage" src="Images/nextPage.svg" onclick="nextPage()" />
+	</div>
+</div>
+
+<!-- View/edit an asset (hash = {asset_id}) -->
+<div class="asset_view_page"></div>
+
+<!-- Add new asset form (hash = AddNew) -->
+<div class="add_new_asset_page">
+	<form class="addNewAssetForm">
+		<div>
+			<label>Owner:</label>
+			<select name="owner_id"></select>
+		</div>
+		<div>
+			<label>Rego:</label>
+			<input type="text" name="rego" />
+		</div>
+		<div>
+			<label>Make:</label>
+			<input type="text" name="make" />
+		</div>
+		<div>
+			<label>Model:</label>
+			<input type="text" name="model" />
+		</div>
+		<div>
+			<label>Year:</label>
+			<input type="number" name="year" />
+		</div>
+		<div>
+			<label>Brand:</label>
+			<input type="text" name="brand" />
+		</div>
+		<div>
+			<label>Category:</label>
+			<select name="category_id"></select>
+		</div>
+		<div>
+			<label>Goods Carried:</label>
+			<input type="text" name="goods_carried" />
+		</div>
+		<div>
+			<label>Home Base:</label>
+			<input type="text" name="home_base" />
+		</div>
+		<div>
+			<label>Route:</label>
+			<input type="text" name="route" />
+		</div>
+		<div>
+			<label>Image (5Mb limit):</label>
+			<input type="file" id="file" multiple />
+		</div>
+	</form>
+	<button onclick="submitForm()">Add</button>
+</div>

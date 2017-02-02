@@ -1,0 +1,14 @@
+﻿@{
+	var image_id = Request["image_id"];
+
+	var selectQueryString = @"
+	SELECT *
+	FROM GF_Images
+	WHERE image_id = " + image_id;
+
+	var result = Database.Open("StarterSite").QuerySingle(selectQueryString);
+
+	Response.Write(
+		result.image_data
+	);
+}

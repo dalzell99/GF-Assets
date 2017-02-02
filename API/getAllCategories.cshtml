@@ -1,0 +1,13 @@
+﻿@{
+	var selectQueryString = @"
+	SELECT *
+	FROM GF_Categories
+	ORDER BY category_id
+	";
+
+	Response.Write(
+		Json.Encode(
+			Database.Open("StarterSite").Query(selectQueryString)
+		)
+	);
+}

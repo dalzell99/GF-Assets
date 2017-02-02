@@ -1,0 +1,17 @@
+﻿@{
+	var selectQueryString = @"
+	SELECT a.*, c.category, o.name AS owner_name
+	FROM GF_Assets AS a
+	INNER JOIN GF_Categories AS c
+	ON a.category_id = c.category_id
+	INNER JOIN GF_Owners AS o
+	ON a.owner_id = o.owner_id
+	ORDER BY a.asset_id
+	";
+
+	Response.Write(
+		Json.Encode(
+			Database.Open("StarterSite").Query(selectQueryString)
+		)
+	);
+}

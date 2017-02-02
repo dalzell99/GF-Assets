@@ -1,0 +1,22 @@
+﻿@{
+	var db = Database.Open("StarterSite");
+
+	// Mandatory params
+	var asset_id = Request["asset_id"];
+	var owner_id = Request["owner_id"];
+	var category_id = Request["category_id"];
+
+	// Optional params
+	var rego = Request["rego"] == "" || Request["rego"] == null ? "NULL" : Request["rego"];
+	var make = Request["make"] == "" || Request["make"] == null ? "NULL" : Request["make"];
+	var model = Request["model"] == "" || Request["model"] == null ? "NULL" : Request["model"];
+	var year = Request["year"] == "" || Request["year"] == null ? "NULL" : Request["year"];
+	var brand = Request["brand"] == "" || Request["brand"] == null ? "NULL" : Request["brand"];
+	var goods_carried = Request["goods_carried"] == "" || Request["goods_carried"] == null ? "NULL" : Request["goods_carried"];
+	var home_base = Request["home_base"] == "" || Request["home_base"] == null ? "NULL" : Request["home_base"];
+	var route = Request["route"] == "" || Request["route"] == null ? "NULL" : Request["route"];
+
+	var qString = "UPDATE GF_Assets SET owner_id = " + owner_id + ", category_id = " + category_id + ", home_base = '" + home_base + "', rego = '" + rego + "', make = '" + make + "', model = '" + model + "', year = " + year + ", goods_carried = '" + goods_carried + "', route = '" + route + "', brand = '" + brand + "' WHERE asset_id = " + asset_id;
+
+	db.Query(qString);
+}

@@ -1,0 +1,12 @@
+﻿@{
+	var selectQueryString = @"
+	SELECT *
+	FROM GF_Images
+	";
+	
+	Response.Write(
+		Json.Encode(
+			Database.Open("StarterSite").Query(selectQueryString)
+		)
+	);
+}

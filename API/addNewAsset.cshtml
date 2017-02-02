@@ -1,0 +1,26 @@
+﻿@{
+	var db = Database.Open("StarterSite");
+
+	// Mandatory params
+	var owner_id = Request["owner_id"];
+	var category_id = Request["category_id"];
+
+	// Optional params
+	var rego = Request["rego"] == "" || Request["rego"] == null ? "NULL" : Request["rego"];
+	var make = Request["make"] == "" || Request["make"] == null ? "NULL" : Request["make"];
+	var model = Request["model"] == "" || Request["model"] == null ? "NULL" : Request["model"];
+	var year = Request["year"] == "" || Request["year"] == null ? "NULL" : Request["year"];
+	var brand = Request["brand"] == "" || Request["brand"] == null ? "NULL" : Request["brand"];
+	var goods_carried = Request["goods_carried"] == "" || Request["goods_carried"] == null ? "NULL" : Request["goods_carried"];
+	var home_base = Request["home_base"] == "" || Request["home_base"] == null ? "NULL" : Request["home_base"];
+	var route = Request["route"] == "" || Request["route"] == null ? "NULL" : Request["route"];
+	var parent_id = Request["parent_id"] == "" || Request["parent_id"] == null ? "NULL" : Request["parent_id"];
+
+	var qString = "INSERT INTO GF_Assets (owner_id, category_id, parent_id, home_base, rego, make, model, year, goods_carried, route, brand) VALUES (" + owner_id + ", " + category_id + ", " + parent_id + ", '" + home_base + "', '" + rego + "', '" + make + "', '" + model + "', " + year + ", '" + goods_carried + "', '" + route + "', '" + brand + "')";
+
+	db.Query(qString);
+
+	Response.Write(
+		db.GetLastInsertId()
+	);
+}
