@@ -1,0 +1,12 @@
+@{
+	// Mandatory params
+	var message = Request.Unvalidated("message");
+	// var message = Request["message"];
+
+	try {
+		WebMail.Send(to:"cfd19@hotmail.co.nz", subject: "Error", body: message);
+		Response.Write("Success");
+	} catch (Exception ex) {
+		Response.Write(ex);
+	}
+}

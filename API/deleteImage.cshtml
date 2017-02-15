@@ -1,0 +1,3 @@
+﻿@{
+	Database.Open("StarterSite").Query("DELETE FROM GF_Images WHERE image_id = " + Request["image_id"] + " AND asset_id = " + Request["asset_id"]);
+}

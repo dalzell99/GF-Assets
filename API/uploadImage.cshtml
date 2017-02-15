@@ -5,8 +5,10 @@
 	var name = Request["name"];
 	var size = Request["size"];
 	var image_data = Request["image_data"];
+	var description = Request["description"];
+	var notes = Request["notes"];
 
-	var insertImagesString = "INSERT INTO GF_Images (asset_id, name, size, image_data, added) VALUES (" + asset_id + ", '" + name + "', " + size + ", '" + image_data + "', GETDATE())";
+	var insertImagesString = "INSERT INTO GF_Images (asset_id, name, size, image_data, added, description, notes) VALUES (" + asset_id + ", '" + name + "', " + size + ", '" + image_data + "', GETDATE(), '" + description + "', '" + notes + "')";
 
 	db.Query(insertImagesString);
 }

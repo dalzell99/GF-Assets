@@ -1,0 +1,26 @@
+﻿@{
+	var db = Database.Open("StarterSite");
+
+	var update = Json.Decode(Request["update"]);
+	foreach (var obj in update) {
+		db.Query("UPDATE GF_Categories SET category = '" + obj.category + "' WHERE category_id = " + obj.category_id);
+	}
+
+	var delete = Json.Decode(Request["delete"]);
+	foreach (var obj3 in delete) {
+		db.Query("DELETE FROM GF_Categories WHERE category_id = " + obj3);
+	}
+
+	var newItems = Json.Decode(Request["new"]);
+	Dictionary<string, decimal> ids = new Dictionary<string, decimal>();
+	foreach (var obj2 in newItems) {
+		db.Query("INSERT INTO GF_Categories (category) VALUES ('" + obj2.category + "')");
+		ids.Add((string)obj2.category_id, db.GetLastInsertId());
+	}
+
+	Response.Write(
+		Json.Encode(
+			ids
+		)
+	);
+}

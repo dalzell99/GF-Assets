@@ -1,0 +1,16 @@
+﻿@{
+	List<string> fields = new List<string>(){"make", "model", "brand", "goods_carried", "route", "home_base"};
+	Dictionary<string, string> list = new Dictionary<string, string>();
+	var db = Database.Open("StarterSite");
+
+	foreach (var field in fields) {
+		var selectQueryString = "SELECT DISTINCT(" + field + ") FROM GF_Assets ORDER BY " + field;
+		list.Add(field, Json.Encode(db.Query(selectQueryString)));
+	}
+
+	Response.Write(
+		Json.Encode(
+			list
+		)
+	);
+}

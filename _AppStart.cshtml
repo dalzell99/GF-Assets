@@ -1,28 +1,29 @@
 ﻿@{
-    WebSecurity.InitializeDatabaseConnection("StarterSite", "UserProfile", "UserId", "Email", autoCreateTables: true);
+	WebSecurity.InitializeDatabaseConnection("StarterSite", "UserProfile", "UserId", "Email", autoCreateTables: true);
 
-    // To let users of this site log in using their accounts from other sites such as Microsoft, Facebook, Twitter,
-    // you must update this site. For more information visit http://go.microsoft.com/fwlink/?LinkID=226949
+	// To let users of this site log in using their accounts from other sites such as Microsoft, Facebook, Twitter,
+	// you must update this site. For more information visit http://go.microsoft.com/fwlink/?LinkID=226949
 
-    //OAuthWebSecurity.RegisterMicrosoftClient(
-    //    clientId: "",
-    //    clientSecret: "");
+	//OAuthWebSecurity.RegisterMicrosoftClient(
+	//    clientId: "",
+	//    clientSecret: "");
 
-    //OAuthWebSecurity.RegisterTwitterClient(
-    //    consumerKey: "",
-    //    consumerSecret: "");
+	//OAuthWebSecurity.RegisterTwitterClient(
+	//    consumerKey: "",
+	//    consumerSecret: "");
 
-    //OAuthWebSecurity.RegisterFacebookClient(
-    //    appId: "",
-    //    appSecret: "");
+	//OAuthWebSecurity.RegisterFacebookClient(
+	//    appId: "",
+	//    appSecret: "");
 
-    //OAuthWebSecurity.RegisterGoogleClient();
+	//OAuthWebSecurity.RegisterGoogleClient();
 
-    //WebMail.SmtpServer = "mailserver.example.com";
-    //WebMail.EnableSsl = true;
-    //WebMail.UserName = "username@example.com";
-    //WebMail.Password = "your-password";
-    //WebMail.From = "your-name-here@example.com";
+	WebMail.SmtpServer = "smtp.gmail.com";
+	WebMail.SmtpPort = 587;
+	WebMail.EnableSsl = true;
+	WebMail.UserName = "gfassetstest@gmail.com";
+	WebMail.Password = "Ak0NeN@Dw1&DTgt";
+	WebMail.From = "gfassetstest@gmail.com";
 
-    // To learn how to optimize scripts and stylesheets in your site go to http://go.microsoft.com/fwlink/?LinkID=248973
+	// To learn how to optimize scripts and stylesheets in your site go to http://go.microsoft.com/fwlink/?LinkID=248973
 }

@@ -19,4 +19,11 @@
 	var qString = "UPDATE GF_Assets SET owner_id = " + owner_id + ", category_id = " + category_id + ", home_base = '" + home_base + "', rego = '" + rego + "', make = '" + make + "', model = '" + model + "', year = " + year + ", goods_carried = '" + goods_carried + "', route = '" + route + "', brand = '" + brand + "' WHERE asset_id = " + asset_id;
 
 	db.Query(qString);
+
+	var images = Json.Decode(Request["images"]);
+	foreach (var image in images) {
+		qString = "UPDATE GF_Images SET description = '" + image.description + "', notes = '" + image.notes + "' WHERE image_id = " + image.image_id;
+
+		db.Query(qString);
+	}
 }
